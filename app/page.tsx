@@ -44,9 +44,9 @@ export default function Home() {
         <div className="relative flex flex-col items-center">
           {/* Gradient Spinner */}
           <div className="relative">
-            <div className="w-20 h-20 border-4 border-t-transparent border-blue-500 rounded-full animate-spin"></div>
-            <div className="absolute inset-0 w-16 h-16 m-2 border-4 border-t-transparent border-purple-500 rounded-full animate-spin animate-reverse"></div>
-            <div className="absolute inset-0 w-12 h-12 m-4 bg-blue-100 rounded-full opacity-50 animate-pulse"></div>
+            <div className="w-20 h-20 border-4 border-t-transparent border-green-800 rounded-full animate-spin"></div>
+            <div className="absolute inset-0 w-16 h-16 m-2 border-4 border-t-transparent border-green-600 rounded-full animate-spin animate-reverse"></div>
+            <div className="absolute inset-0 w-12 h-12 m-4 bg-green-400 rounded-full opacity-50 animate-pulse"></div>
           </div>
           {/* Loading Text */}
           <div className="mt-6 flex items-center space-x-2">
@@ -63,7 +63,7 @@ export default function Home() {
                 style={{ animationDelay: "0.2s" }}
               ></div>
               <div
-                className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce"
+                className="w-2 h-2 bg-green-400 rounded-full animate-bounce"
                 style={{ animationDelay: "0.4s" }}
               ></div>
             </div>
