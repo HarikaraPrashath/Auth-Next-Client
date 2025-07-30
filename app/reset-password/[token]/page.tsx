@@ -52,7 +52,7 @@ const Page = () => {
       } else {
         setMessage(data.message || "Password reset successful!");
         setTimeout(() => {
-          router.push("/Login");
+          router.push("/login");
         }, 2000);
       }
     } catch {
