@@ -65,7 +65,7 @@ const Page = () => {
   return (
     <div
       className="min-h-screen "
-      style={{ backgroundImage: "url('/images/bg.png')" }}
+      style={{ backgroundImage: "url('/Images/bg.png')" }}
     >
       <div className="grid grid-cols-[30%_70%] min-h-screen b">
         {/* Left Column */}
@@ -73,7 +73,7 @@ const Page = () => {
           {/* Logo */}
           <div className="flex items-center justify-center pt-10">
             <Image
-              src="/images/logo.png"
+              src="/Images/logo.png"
               alt="Logo"
               width={150}
               height={50}
@@ -90,7 +90,7 @@ const Page = () => {
         {/* Right Column */}
         <div
           className="w-full h-full bg-cover bg-center "
-          style={{ backgroundImage: "url('/images/hero.png')" }}
+          style={{ backgroundImage: "url('/Images/hero.png')" }}
         >
           {/* Login Form */}
           <div className=" flex flex-col items-center justify-center h-full ml-50 text-white px-6">
