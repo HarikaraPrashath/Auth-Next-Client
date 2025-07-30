@@ -8,7 +8,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 const Page = () => {
   const router = useRouter();
   const params = useParams();
-  const token = params?.token as string;
+  const token = Array.isArray(params.token) ? params.token[0] : params.token;
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showConfirmPassword, setShowConfirmPassword] =
     useState<boolean>(false);
