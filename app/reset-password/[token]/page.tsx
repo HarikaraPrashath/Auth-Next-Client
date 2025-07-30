@@ -37,7 +37,7 @@ const Page = () => {
     try {
       // Send a POST request to reset the password
       const response = await fetch(
-        `${process.env.BACKEND_URL}/api/users/reset-password/${token}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/reset-password/${token}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
