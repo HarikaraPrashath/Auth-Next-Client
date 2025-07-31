@@ -21,7 +21,12 @@ const HeartRateCard = () => {
     ctx: CanvasRenderingContext2D,
     chartArea: { top: number; bottom: number }
   ) => {
-    const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+    const gradient = ctx.createLinearGradient(
+      0,
+      chartArea.bottom,
+      0,
+      chartArea.top
+    );
     gradient.addColorStop(0, "rgba(34,197,94,0.1)");
     gradient.addColorStop(1, "rgba(34,197,94,0.8)");
     return gradient;
@@ -32,7 +37,7 @@ const HeartRateCard = () => {
     datasets: [
       {
         label: "Heart Rate",
-        data: [60, 30, 20, 45, 35, 40, 25,55,12,30],
+        data: [60, 30, 20, 45, 35, 40, 25, 55, 12, 30],
         borderRadius: 4,
         backgroundColor: (context: ScriptableContext<"bar">) => {
           const chart = context.chart;

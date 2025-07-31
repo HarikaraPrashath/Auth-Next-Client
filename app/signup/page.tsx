@@ -92,7 +92,7 @@ const Page = () => {
               </div>
 
               {/*  Password */}
-             <div className="mb-4 relative">
+              <div className="mb-4 relative">
                 <label className="block mb-1 text-white">Password</label>
                 <input
                   type={showPassword ? "text" : "password"}
@@ -108,7 +108,7 @@ const Page = () => {
                   {showPassword ? (
                     <AiOutlineEye size={20} />
                   ) : (
-                    < AiOutlineEyeInvisible size={20} />
+                    <AiOutlineEyeInvisible size={20} />
                   )}
                 </span>
               </div>

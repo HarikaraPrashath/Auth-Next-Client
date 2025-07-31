@@ -11,9 +11,8 @@ import Pills from "../Pills/Pills";
 import { GrDocumentPdf } from "react-icons/gr";
 import { RiDownload2Line } from "react-icons/ri";
 
-
 type User = {
-  name: string;  
+  name: string;
   token: string;
 };
 
@@ -21,7 +20,7 @@ interface SideBarProps {
   user: User;
 }
 
-const MainBar = ({user}:SideBarProps) => {
+const MainBar = ({ user }: SideBarProps) => {
   return (
     <div>
       <div className="w-full flex mt-6  text-black ">
@@ -186,7 +185,7 @@ const MainBar = ({user}:SideBarProps) => {
               <div>Lorem ipsum dolor sit amet consectetur </div>
               <div>Dr.Damien Frank</div>
             </div>
-             <div className="flex justify-between mt-3  text-xs font-semibold text-green-950">
+            <div className="flex justify-between mt-3  text-xs font-semibold text-green-950">
               <div>June 25, 2025</div>
               <div>Lorem ipsum dolor sit amet consectetur </div>
               <div>Dr.Damien Frank</div>
@@ -197,7 +196,7 @@ const MainBar = ({user}:SideBarProps) => {
               <div>Lorem ipsum dolor sit amet consectetur </div>
               <div>Dr.Damien Frank</div>
             </div>
-             <div className="flex justify-between mt-3  text-xs font-semibold text-green-950">
+            <div className="flex justify-between mt-3  text-xs font-semibold text-green-950">
               <div>June 25, 2025</div>
               <div>Lorem ipsum dolor sit amet consectetur </div>
               <div>Dr.Damien Frank</div>

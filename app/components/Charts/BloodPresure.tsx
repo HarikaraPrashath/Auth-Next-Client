@@ -13,13 +13,28 @@ import {
 } from "chart.js";
 import { FaHeartPulse } from "react-icons/fa6";
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Filler, Tooltip);
+ChartJS.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Filler,
+  Tooltip
+);
 
 const BloodPressureCard = () => {
   const chartRef = useRef(null);
 
-  const getGradient = (ctx: CanvasRenderingContext2D, chartArea: { top: number; bottom: number }) => {
-    const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+  const getGradient = (
+    ctx: CanvasRenderingContext2D,
+    chartArea: { top: number; bottom: number }
+  ) => {
+    const gradient = ctx.createLinearGradient(
+      0,
+      chartArea.bottom,
+      0,
+      chartArea.top
+    );
     gradient.addColorStop(0, "rgba(78, 2, 210, 0)");
     gradient.addColorStop(1, "rgba(73, 18, 168, 0.6)");
     return gradient;

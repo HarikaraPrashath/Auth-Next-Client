@@ -26,8 +26,16 @@ ChartJS.register(
 const Temper = () => {
   const chartRef = useRef(null);
 
-  const getGradient = (ctx: CanvasRenderingContext2D, chartArea: { top: number; bottom: number }) => {
-    const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+  const getGradient = (
+    ctx: CanvasRenderingContext2D,
+    chartArea: { top: number; bottom: number }
+  ) => {
+    const gradient = ctx.createLinearGradient(
+      0,
+      chartArea.bottom,
+      0,
+      chartArea.top
+    );
     gradient.addColorStop(0, "rgba(238, 223, 11, 0.1)");
     gradient.addColorStop(1, "rgba(255, 253, 130, 0.8)");
     return gradient;

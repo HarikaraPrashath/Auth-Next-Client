@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
-import { User } from "../Context/AuthContext";
+import { User } from "../Context/authContext";
 
 export const useRegister = () => {
   const [error, setError] = useState<string | null>(null);
