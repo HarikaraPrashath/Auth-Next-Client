@@ -4,6 +4,9 @@ import { useRegister } from "../../hook/useRegister";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { toast } from 'react-hot-toast';
+
+
 
 const Page = () => {
   const { register, isLoading, error } = useRegister();
@@ -12,18 +15,19 @@ const Page = () => {
   const [email, setEmail] = useState<string>("");
   const router = useRouter();
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const success = await register(name, email, password);
 
     if (!success && error) {
-      alert(error); // Display the error message
+       toast.error(error); // Display the error message
       return;
     }
 
     if (success) {
-      alert("Register Your Account Successfully");
+      toast.success("Register Your Account Successfully");
       router.push("/");
     }
   };

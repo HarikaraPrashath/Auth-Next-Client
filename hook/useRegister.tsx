@@ -37,11 +37,11 @@ export const useRegister = () => {
           }),
         }
       );
-      const json: User & { error?: string } = await response.json();
+      const json: User & { message?: string } = await response.json();
 
       if (!response.ok) {
         setIsLoading(false);
-        setError(json.error || "Registration failed");
+        setError(json.message || "Registration failed");
         return false;
       }
 

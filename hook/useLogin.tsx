@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { User } from "../context/authContext";
 
 export const useLogin = () => {
   const [error, setError] = useState<string | null>(null);
@@ -29,10 +30,10 @@ export const useLogin = () => {
       );
 
       // Check if the response is ok
-      const json = await response.json();
+        const json: User & { message?: string } = await response.json();
 
       if (!response.ok) {
-        setError(json.message);
+        setError(json.message || "Login Failure");
         setIsLoading(false);
         return { success: false, error: json.message };
       }

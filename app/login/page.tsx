@@ -4,9 +4,11 @@ import { useLogin } from "../../hook/useLogin";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { toast } from 'react-hot-toast';
+
 
 const Page = () => {
-  const { login, isLoading } = useLogin();
+  const { login, isLoading,error } = useLogin();
   const [name, setName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const router = useRouter();
@@ -17,10 +19,13 @@ const Page = () => {
     e.preventDefault();
     const success = await login(name, password);
 
-    if (success.error) {
-      alert(success.error);
-    } else if (success.success) {
-      alert("Login Your Account Successfully");
+    if (!success && error) {
+       toast.error(error); // Display the error message
+      return;
+    }
+    
+    if (success) {
+      toast.success("Login Your Account Successfully");
       router.push("/");
     }
   };
