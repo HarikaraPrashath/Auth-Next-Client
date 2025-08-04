@@ -34,24 +34,27 @@ export default function RootLayout({
           toastOptions={{
             duration: 4000,
             style: {
-              background: "#1f2937", // Tailwind's gray-800
-              color: "#f9fafb", // Tailwind's gray-50
+              background: "#1f2937", // Dark gray
+              color: "#f9fafb", // Light text
               fontSize: "15px",
               fontWeight: 500,
-              padding: "14px 20px",
+              padding: "14px 24px", // More horizontal padding
               borderRadius: "12px",
+              maxWidth: "90vw", // Responsive on small screens
+              width: "fit-content", // Auto-expand with text
               boxShadow: "0 8px 20px rgba(0, 0, 0, 0.25)",
-              border: "1px solid #374151", // Tailwind's gray-700
+              border: "1px solid #374151", // Subtle border
+              wordBreak: "break-word", // Prevent overflow
             },
             success: {
               iconTheme: {
-                primary: "#10B981", // emerald-500
+                primary: "#10B981",
                 secondary: "#f0fdf4",
               },
             },
             error: {
               iconTheme: {
-                primary: "#EF4444", // red-500
+                primary: "#EF4444",
                 secondary: "#fef2f2",
               },
             },
