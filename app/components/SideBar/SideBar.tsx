@@ -8,24 +8,56 @@ import { BsCalendar2WeekFill } from "react-icons/bs";
 import { IoMdChatbubbles } from "react-icons/io";
 import { PiNotepadFill } from "react-icons/pi";
 import { useLogout } from "../../../hook/useLogout";
-import { usePathname,useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 // Define the menu items with icons and labels
 const menuItems = [
-  { icon: <MdDashboard className="w-6 h-6" />, label: "Dashboard", route: "/dashboard" },
-  { icon: <FaUserAlt className="w-6 h-6" />, label: "Profile", route: "/dashboard/profile" },
-  { icon: <RiStethoscopeFill className="w-6 h-6" />, label: "Medical Records", route: "/dashboard/medical-records" },
-  { icon: <BsCalendar2WeekFill className="w-6 h-6" />, label: "Appointments", route: "/dashboard/appoinment" },
-  { icon: <FaNotesMedical className="w-6 h-6" />, label: "Reports", route: "/dashboard/reports" },
-  { icon: <IoMdChatbubbles className="w-6 h-6" />, label: "Messages", route: "/dashboard/message" },
-  { icon: <FaUserDoctor className="w-6 h-6" />, label: "Doctors", route: "/dashboard/doctor" },
-  { icon: <PiNotepadFill className="w-6 h-6" />, label: "Medical Bills", route: "/dashboard/medical-bill" },
+  {
+    icon: <MdDashboard className="w-6 h-6" />,
+    label: "Dashboard",
+    route: "/dashboard",
+  },
+  {
+    icon: <FaUserAlt className="w-6 h-6" />,
+    label: "Profile",
+    route: "/dashboard/profile",
+  },
+  {
+    icon: <RiStethoscopeFill className="w-6 h-6" />,
+    label: "Medical Records",
+    route: "/dashboard/medical-records",
+  },
+  {
+    icon: <BsCalendar2WeekFill className="w-6 h-6" />,
+    label: "Appointments",
+    route: "/dashboard/appoinment",
+  },
+  {
+    icon: <FaNotesMedical className="w-6 h-6" />,
+    label: "Reports",
+    route: "/dashboard/reports",
+  },
+  {
+    icon: <IoMdChatbubbles className="w-6 h-6" />,
+    label: "Messages",
+    route: "/dashboard/message",
+  },
+  {
+    icon: <FaUserDoctor className="w-6 h-6" />,
+    label: "Doctors",
+    route: "/dashboard/doctor",
+  },
+  {
+    icon: <PiNotepadFill className="w-6 h-6" />,
+    label: "Medical Bills",
+    route: "/dashboard/medical-bill",
+  },
 ];
 
 const SideBar = () => {
   const router = useRouter();
   const { logout } = useLogout();
-    const pathname = usePathname();
+  const pathname = usePathname();
 
   //Logout Method
   const handleClick = () => {
@@ -41,7 +73,7 @@ const SideBar = () => {
           <div
             key={index}
             className={`p-2 rounded-lg ${
-               pathname === item.route ? "bg-green-100 " : ""
+              pathname === item.route ? "bg-green-100 " : ""
             }`}
           >
             <button
