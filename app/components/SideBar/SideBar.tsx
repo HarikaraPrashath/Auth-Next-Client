@@ -22,7 +22,13 @@ const menuItems = [
   { icon: <PiNotepadFill className="w-6 h-6" />, label: "Medical Bills" },
 ];
 
-const SideBar = () => {
+const SideBar = ({
+  activePage,
+  setActivePage,
+}: {
+  activePage: number;
+  setActivePage: (index: number) => void;
+}) => {
   const router = useRouter();
   const { logout } = useLogout();
 
@@ -39,11 +45,14 @@ const SideBar = () => {
         {menuItems.map((item, index) => (
           <div
             key={index}
-            className={`p-2 rounded-lg ${index === 0 ? "bg-green-100 " : ""}`}
+            className={`p-2 rounded-lg ${
+              activePage === index ? "bg-green-100 " : ""
+            }`}
           >
             <button
               type="button"
               className="flex items-center gap-3 w-full px-2 py-2 text-xl"
+              onClick={() => setActivePage(index)}
             >
               {item.icon}
               <span>{item.label}</span>

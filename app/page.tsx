@@ -1,17 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-
 import SideBar from "./components/SideBar/SideBar";
-import MainBar from "./components/MainBar/MainBar";
 
 export default function Home() {
   const router = useRouter();
   const [user, setUser] = useState<{ name: string; token: string } | null>(
     null
   );
-
   const [loading, setLoading] = useState(true);
+  const [activePage, setActivePage] = useState(0);
 
   // Check if user is logged in by checking local storage
   useEffect(() => {
@@ -36,6 +34,25 @@ export default function Home() {
       router.push("/login");
     }
   }, [router]);
+
+  //render function will come here
+  useEffect(() => {
+    if (!user) return;
+
+    switch (activePage) {
+      case 0:
+        router.push("/dashboard/home");
+        break;
+      case 1:
+        router.push("/dashboard/profile");
+        break;
+      case 2:
+        router.push("/dashboard/appointment");
+        break;
+      default:
+        break;
+    }
+  }, [activePage, user, router]);
 
   // Show loading screen while verifying user
   if (loading)
@@ -79,12 +96,16 @@ export default function Home() {
   // If loading, return null to avoid rendering before user state is set
   if (!user) return null;
   return (
-    <div className="flex justify-center bg-gray-100 min-h-screen px-4">
-      <div className="flex w-full max-w-screen-2xl">
-        {" "}
-        {/*max-w-screen-2xl: prevents stretching beyond -> 1536px */}
-        <SideBar />
-        <MainBar user={user} />
+    <div className="flex min-h-screen bg-gray-100">
+      {/* Sidebar on the very left edge */}
+      <aside className="w-[250px] md:w-[350px] bg-white shadow-md border-r">
+        <SideBar activePage={activePage} setActivePage={setActivePage} />
+      </aside>
+      {/* Main content centered */}
+      <div className="flex justify-center mr-20 w-full">
+        <main className="w-full max-w-screen-lg p-6">
+          <p className="text-xl text-green-700 font-semibold">Redirecting...</p>
+        </main>
       </div>
     </div>
   );
