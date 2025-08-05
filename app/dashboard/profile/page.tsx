@@ -4,19 +4,19 @@ import React from "react";
 
 const page = () => {
   return (
-    <div>
+    <div className="">
       <Search />
-      <div className="border-1 border-green-300 rounded-lg p-4 mt-5">
+      <div className="border-1 border-gray-300 rounded-lg p-4 mt-5">
         <h1 className="text-2xl text-green-900">Personal Details</h1>
 
-        <div className="flex gap-10 p-4 bg-white rounded-lg ">
+        <div className="flex gap-10 p-4  rounded-lg ">
           {/* Left Section - Profile */}
           <div className="min-w-[300px] font-semibold text-gray-700">
             <Image
-              src={"/face1.jpg"}
-              width={60}
+              src={"/Images/face1.jpg"}
+              width={120}
               alt="patient"
-              height={60}
+              height={120}
               className="w-50 h-50 rounded-full mx-auto"
             />
             <h1 className="text-center text-lg text-green-900 ">
@@ -75,7 +75,7 @@ const page = () => {
                 <span className="text-green-900 opacity-90">yes</span>
               </div>
               <div className="w-1/2 -mt-6">
-                <div className="border-2 border-green-200 w-[180px] p-2 rounded-lg text-green-900 opacity-90 ">
+                <div className="border-2 border-gray-200 w-[180px] p-2 rounded-lg text-green-900 opacity-90 ">
                   <span>No 27A</span>
                   <br />
                   <span>Uyankele Cross Road</span>
@@ -89,7 +89,7 @@ const page = () => {
 
       <div className="flex gap-5  rounded-lg mt-5">
         {/* right Section */}
-        <div className="min-w-[480px] font-semibold gap-4 border-2 p-4 border-green-200 rounded-lg">
+        <div className="min-w-[480px] font-semibold gap-4 border-2 p-4 border-gray-200 rounded-lg">
           <h1 className="text-xl font-bold text-green-900">
             Guardian Details{" "}
           </h1>
@@ -111,7 +111,8 @@ const page = () => {
           <p className="text-md  opacity-80 text-green-900">Lorem</p>
         </div>
 
-        <div className="min-w-[480px] font-semibold gap-4 border-2 p-4 border-green-200 rounded-lg">
+        {/* left side */}
+        <div className="min-w-[480px] font-semibold gap-4 border-2 p-4 border-gray-200 rounded-lg">
           <h1 className="text-xl font-bold text-green-900 mb-3">
             Medical information{" "}
           </h1>
@@ -145,7 +146,7 @@ const page = () => {
               <textarea
                 id="allergies"
                 name="allergies"
-                className="w-50 h-20 border-2 border-green-200 rounded p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="w-50 h-20 border-2 border-gray-200 rounded p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
                 placeholder=""
               />
             </div>
@@ -160,7 +161,7 @@ const page = () => {
               <textarea
                 id="MedicalConditions"
                 name="MedicalConditions"
-                className="w-50 h-20 border-2 border-green-200 rounded p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+                className="w-50 h-20 border-2 border-gray-200 rounded p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
                 placeholder=""
               />
             </div>
@@ -176,7 +177,7 @@ const page = () => {
             <textarea
               id="remarks"
               name="remarks"
-              className="w-107 h-20 border-2 border-green-200 rounded p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="w-107 h-20 border-2 border-gray-200 rounded p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
               placeholder=""
             />
           </div>

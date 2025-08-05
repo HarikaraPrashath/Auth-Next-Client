@@ -36,7 +36,7 @@ const Search = () => {
       <div className="ml-6 mt-1 border-l w-[200px] h-10 border-2px flex justify-end items-center space-x-2 pl-2">
         <div>
           <Image
-            src="/face.jpg"
+            src="/Images/face.jpg"
             alt="Profile"
             width={40}
             height={40}

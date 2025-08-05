@@ -1,13 +1,13 @@
 import React from "react";
 import { HiMiniBell } from "react-icons/hi2";
-import NextAppointmet from "../../components/Calendar/Calender";
+import NextAppointmet from "../components/Calendar/Calender";
 import { GrDocumentPdf } from "react-icons/gr";
 import { RiDownload2Line } from "react-icons/ri";
-import BloodPressureCard from "../../components/Charts/BloodPresure";
-import HeartRateCard from "../../components/Charts/HeartRate";
-import Temper from "../../components/Charts/Temp";
-import Pills from "../../components/Pills/Pills";
-import Search from "../../components/SearchBar/search";
+import BloodPressureCard from "../components/Charts/BloodPresure";
+import HeartRateCard from "../components/Charts/HeartRate";
+import Temper from "../components/Charts/Temp";
+import Pills from "../components/Pills/Pills";
+import Search from "../components/SearchBar/search";
 
 const Dashboard = () => {
   return (

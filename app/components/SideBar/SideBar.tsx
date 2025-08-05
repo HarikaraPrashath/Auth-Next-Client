@@ -8,29 +8,24 @@ import { BsCalendar2WeekFill } from "react-icons/bs";
 import { IoMdChatbubbles } from "react-icons/io";
 import { PiNotepadFill } from "react-icons/pi";
 import { useLogout } from "../../../hook/useLogout";
-import { useRouter } from "next/navigation";
+import { usePathname,useRouter } from "next/navigation";
 
 // Define the menu items with icons and labels
 const menuItems = [
-  { icon: <MdDashboard className="w-6 h-6" />, label: "Dashboard" },
-  { icon: <FaUserAlt className="w-6 h-6" />, label: "Profile" },
-  { icon: <RiStethoscopeFill className="w-6 h-6" />, label: "Medical Records" },
-  { icon: <BsCalendar2WeekFill className="w-6 h-6" />, label: "Appointments" },
-  { icon: <FaNotesMedical className="w-6 h-6" />, label: "Reports" },
-  { icon: <IoMdChatbubbles className="w-6 h-6" />, label: "Messages" },
-  { icon: <FaUserDoctor className="w-6 h-6" />, label: "Doctors" },
-  { icon: <PiNotepadFill className="w-6 h-6" />, label: "Medical Bills" },
+  { icon: <MdDashboard className="w-6 h-6" />, label: "Dashboard", route: "/dashboard" },
+  { icon: <FaUserAlt className="w-6 h-6" />, label: "Profile", route: "/dashboard/profile" },
+  { icon: <RiStethoscopeFill className="w-6 h-6" />, label: "Medical Records", route: "/dashboard/medical-records" },
+  { icon: <BsCalendar2WeekFill className="w-6 h-6" />, label: "Appointments", route: "/dashboard/appoinment" },
+  { icon: <FaNotesMedical className="w-6 h-6" />, label: "Reports", route: "/dashboard/reports" },
+  { icon: <IoMdChatbubbles className="w-6 h-6" />, label: "Messages", route: "/dashboard/message" },
+  { icon: <FaUserDoctor className="w-6 h-6" />, label: "Doctors", route: "/dashboard/doctor" },
+  { icon: <PiNotepadFill className="w-6 h-6" />, label: "Medical Bills", route: "/dashboard/medical-bill" },
 ];
 
-const SideBar = ({
-  activePage,
-  setActivePage,
-}: {
-  activePage: number;
-  setActivePage: (index: number) => void;
-}) => {
+const SideBar = () => {
   const router = useRouter();
   const { logout } = useLogout();
+    const pathname = usePathname();
 
   //Logout Method
   const handleClick = () => {
@@ -46,13 +41,13 @@ const SideBar = ({
           <div
             key={index}
             className={`p-2 rounded-lg ${
-              activePage === index ? "bg-green-100 " : ""
+               pathname === item.route ? "bg-green-100 " : ""
             }`}
           >
             <button
               type="button"
               className="flex items-center gap-3 w-full px-2 py-2 text-xl"
-              onClick={() => setActivePage(index)}
+              onClick={() => router.push(item.route)}
             >
               {item.icon}
               <span>{item.label}</span>
