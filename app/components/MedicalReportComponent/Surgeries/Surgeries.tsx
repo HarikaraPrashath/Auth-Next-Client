@@ -47,6 +47,7 @@ const Surgeries = () => {
 
   const toggleRow = (id: string) => {
     setExpandedRow(expandedRow === id ? null : id);
+    setActiveTab("Instructions"); // reset tab when row opens
   };
 
   return (
@@ -122,39 +123,39 @@ const Surgeries = () => {
               {expandedRow === surgery.id && (
                 <div className="px-6 pb-4 bg-gray-50">
                   <div className="bg-white rounded-md border border-green-200 p-4 flex gap-4">
-                    {/* Left side - Info */}
-                    <div className="flex flex-col space-y-2 w-1/3">
-                      {surgery.instructions && (
-                        <div className="text-sm text-gray-700">
-                          <span className="font-semibold text-green-600">
-                            Instructions:
-                          </span>{" "}
-                        </div>
-                      )}
-                      {surgery.notes && (
-                        <div className="text-sm text-gray-700">
-                          <span className="font-semibold text-green-600">
-                            Notes:
-                          </span>{" "}
-                        </div>
-                      )}
-                      {surgery.reason && (
-                        <div className="text-sm text-gray-700">
-                          <span className="font-semibold text-green-600">
-                            Reason:
-                          </span>{" "}
-                        </div>
-                      )}
+                    {/* Vertical Tabs - Left side */}
+                    <div className="flex flex-col w-1/4 border-r border-green-200">
+                      {["Instructions", "Notes", "Reason"].map((tab) => (
+                        <button
+                          key={tab}
+                          type="button"
+                          className={`px-3 py-2 text-sm text-left transition-colors border-l-3 ${
+                            activeTab === tab
+                              ? "border-green-500 text-green-600 bg-green-50 font-medium "
+                              : "  text-gray-600 hover:text-green-700 hover:bg-gray-50 border-l-2"
+                          }`}
+                          onClick={() => setActiveTab(tab)}
+                        >
+                          {tab}
+                        </button>
+                      ))}
                     </div>
 
-                    {/* Right side - Textarea */}
-                    <div className="flex-grow">
+                    {/* Right side - Content */}
+                    <div className="flex-grow pl-4">
+                      {activeTab === "Instructions" && (
+                        <div className="text-sm text-gray-700"></div>
+                      )}
+                      {activeTab === "Notes" && (
+                        <div className="text-sm text-gray-700"></div>
+                      )}
+                      {activeTab === "Reason" && (
+                        <div className="text-sm text-gray-700"></div>
+                      )}
                       <textarea
-                        className="w-full h-full min-h-[100px] border border-green-200 border-opacity-40 rounded-md p-2 resize-none overflow-y-auto max-h-40
-                scrollbar-thin scrollbar-thumb-green-500 scrollbar-track-green-100"
+                        className="w-full h-full mt-3 min-h-[100px] border border-green-200 border-opacity-40 rounded-md p-2 resize-none overflow-y-auto max-h-40 scrollbar-thin scrollbar-thumb-green-500 scrollbar-track-green-100"
                         rows={4}
-                        placeholder="Enter surgery notes here..."
-                        onChange={() => {}}
+                        placeholder={"Enter here..."}
                       ></textarea>
                     </div>
                   </div>

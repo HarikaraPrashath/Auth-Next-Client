@@ -53,7 +53,10 @@ const page = () => {
                 </tr>
                 <tr className="">
                   <td className="py-2 ">Height</td>
-                  <td className="py-2 text-right font-medium">5`7" (170cm)</td>
+                  <td className="py-2 text-right font-medium">
+                    {" "}
+                    5&apos;7&quot; (170cm)
+                  </td>
                 </tr>
                 <tr className="">
                   <td className="py-2 ">BMI (calc).</td>
