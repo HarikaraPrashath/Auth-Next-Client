@@ -42,12 +42,12 @@ const VisitHistory = () => {
 
   const toggleRow = (id: string) => {
     setExpandedRow(expandedRow === id ? null : id);
-    setActiveTab("Reason"); // reset tab when row opens
+    setActiveTab("Reason"); // reset tab when a row opens
   };
 
   return (
     <div>
-      <h1 className="text-green-950 text-xl">Visit History</h1>
+      <h1 className="text-green-950 text-xl font-semibold">Visit History</h1>
 
       <div className="border mt-2 border-gray-200 rounded-lg overflow-hidden">
         <table className="w-full table-auto text-sm">
@@ -113,23 +113,31 @@ const VisitHistory = () => {
                         {/* Right side - Content */}
                         <div className="flex-grow pl-4">
                           {activeTab === "Reason" && (
-                            <div className="text-sm text-gray-700"></div>
+                            <div className="text-sm text-gray-700">
+                              {visit.reason}
+                            </div>
                           )}
                           {activeTab === "Notes" && (
-                            <div className="text-sm text-gray-700"></div>
+                            <div className="text-sm text-gray-700">
+                              {visit.notes}
+                            </div>
                           )}
                           {activeTab === "Medicine" && (
-                            <div className="text-sm text-gray-700"></div>
+                            <div className="text-sm text-gray-700">
+                              {visit.medicine}
+                            </div>
                           )}
                           {activeTab === "Tests" && (
-                            <div className="text-sm text-gray-700"></div>
+                            <div className="text-sm text-gray-700">
+                              {visit.tests}
+                            </div>
                           )}
 
                           {/* Textarea for editing */}
                           <textarea
                             className="w-full h-full mt-3 min-h-[100px] border border-green-200 border-opacity-40 rounded-md p-2 resize-none overflow-y-auto max-h-40 scrollbar-thin scrollbar-thumb-green-500 scrollbar-track-green-100"
                             rows={4}
-                            placeholder={"Enter here..."}
+                            placeholder={`Update ${activeTab.toLowerCase()} here...`}
                           ></textarea>
                         </div>
                       </div>
