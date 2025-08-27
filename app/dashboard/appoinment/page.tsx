@@ -2,8 +2,11 @@
 import React, { useState } from "react";
 import Search from "@/app/components/SearchBar/search";
 import { ChevronDown, ChevronRight } from "lucide-react";
+import { FaRegCalendar } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
+import RequestAppointmentSheet from "@/app/components/AppoinmentsComponents/AppoinmentSheet/RequestAppointmentSheet";
 
-interface Upcoming  {
+interface Upcoming {
   id: number;
   provider: string;
   position?: string;
@@ -93,6 +96,7 @@ const Page = () => {
   const [date, setDate] = useState<string>("mm/dd/yyyy ");
   const tabs = ["Upcoming (3)", "Complete (3)", "Cancelled (3)", "Request (3)"];
   const [expandedRow, setExpandedRow] = useState<string | null>("");
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleRow = (id: string) => {
     setExpandedRow(expandedRow === id ? null : id);
@@ -147,14 +151,12 @@ const Page = () => {
           <option value="allAppointments">All Appointments</option>
         </select>
 
-        <div>
-          <button
-            type="submit"
-            className="bg-green-700 ml-30  text-white font-semibold py-2 px-4 rounded flex items-center gap-2"
+        <div className="flex gap-5 mt-4">
+          <button type="button"
+            onClick={() => setIsOpen(true)}
+            className="bg-green-700 ml-30 text-white font-semibold py-2 px-4 rounded flex items-center gap-2"
           >
-            <span className="material-symbols-outlined text-white">
-              + Request Appointment
-            </span>
+            + Request Appointment
           </button>
         </div>
       </div>
@@ -207,9 +209,15 @@ const Page = () => {
                       </span>
                     </td>
                     <td className="py-2 px-2 text-sm">{upcoming.department}</td>
-                    <td>
-                      <span>Reschedule</span>
-                      <span>Cancel</span>
+                    <td className="flex justify-end items-center py-2 mt-4 px-2 text-sm">
+                      <span className="pr-4 cursor-pointer text-green-600 hover:text-green-800 flex items-center gap-1">
+                        <FaRegCalendar />
+                        Reschedule
+                      </span>
+                      <span className="pr-2 cursor-pointer text-red-600 hover:text-red-800 flex items-center gap-1">
+                        <IoMdClose />
+                        Cancel
+                      </span>
                       <span
                         className="pl-2"
                         onClick={() => toggleRow(upcoming.id.toString())}
@@ -265,6 +273,10 @@ const Page = () => {
           </table>
         </div>
       </div>
+      <RequestAppointmentSheet
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
     </div>
   );
 };
