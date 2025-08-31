@@ -130,7 +130,7 @@ const Page = () => {
           }
           className="border border-gray-300 rounded-md p-2 w-[20%]"
         >
-          <option value="all">All Provider</option>
+          <option value="all">All Department</option>
           <option value="upcoming">Upcoming Appointments</option>
           <option value="past">Past Appointments</option>
           <option value="allAppointments">All Appointments</option>
@@ -145,7 +145,7 @@ const Page = () => {
           }
           className="border border-gray-300 rounded-md p-2 w-[20%]"
         >
-          <option value="all">All Provider</option>
+          <option value="all">mm/dd/yyyy</option>
           <option value="upcoming">Upcoming Appointments</option>
           <option value="past">Past Appointments</option>
           <option value="allAppointments">All Appointments</option>
